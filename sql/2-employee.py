@@ -1,0 +1,11 @@
+import mysql.connector as sql
+con = sql.connect(host="localhost", user = "root", passwd = "0001", database = "practical")
+eno = int(input("ENTER EMPLOYEE ID : "))
+name = input("ENTER NAME : ")
+sal = int(input("ENTER SALARY : "))
+cur = con.cursor()
+Q = "INSERT INTO EMP VALUES({},'{}',{})".format(eno,name,sal)
+cur.execute(Q)
+con.commit()
+print("EMPLOYEE DETAILS ARE STORED SUCCESSFULLY")
+con.close()
